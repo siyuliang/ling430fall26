@@ -6,29 +6,19 @@ __pycache__/
 .vscode/
 .venv/
 
-# ── instructor-only: never publish ──────────────────────────────────────
+# instructor-only
 instructor_solutions/
 coursestudy_reports/
 DESIGN_NOTES.md
 canvas_syllabus_blurb.md
 validate_decks.py
-
-# ── not released to students yet ────────────────────────────────────────
-# HTML deck drafts (being converted to pptx one week at a time)
 slides_html/
 
-# Class notebooks: nothing published yet.
-# To release one, add a line like:  !classwork/class01b.ipynb
 classwork/
-!classwork/CONVENTIONS.md
+# !classwork/CONVENTIONS.md
 
-# Homework: nothing published yet.
-# To release one, add a line like:  !homework/hw1/
 homework/
 
-# Slides: nothing published yet. PDF only when released; .pptx sources stay local.
-# To release a deck, add a line like:  !slides/lec01a.pdf
 slides/
+!slides/lec01a.pdf
 
-# throwaway Colab link test
-colab-test.ipynb

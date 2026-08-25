@@ -19,6 +19,6 @@ classwork/
 
 homework/
 
-slides/
+slides/*
 !slides/lec01a.pdf
 

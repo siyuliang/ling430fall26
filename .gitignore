@@ -14,8 +14,8 @@ canvas_syllabus_blurb.md
 validate_decks.py
 slides_html/
 
-classwork/
-# !classwork/CONVENTIONS.md
+classwork/*
+!classwork/class01b.ipynb
 
 homework/
 

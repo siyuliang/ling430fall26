@@ -16,8 +16,10 @@ slides_html/
 
 classwork/*
 !classwork/class01b.ipynb
+!classwork/class02a.ipynb
 
-homework/
+homework/*
+!homework/hw1.ipynb
 
 slides/*
 !slides/lec01a.pdf

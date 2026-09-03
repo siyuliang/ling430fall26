@@ -13,10 +13,12 @@ DESIGN_NOTES.md
 canvas_syllabus_blurb.md
 validate_decks.py
 slides_html/
+build_code/
 
 classwork/*
 !classwork/class01b.ipynb
 !classwork/class02a.ipynb
+!classwork/class02b.ipynb
 
 homework/*
 !homework/hw1.ipynb
@@ -25,4 +27,4 @@ slides/*
 !slides/lec01a.pdf
 !slides/lec01b.pdf
 !slides/lec02a.pdf
-
+!slides/lec02b.pdf

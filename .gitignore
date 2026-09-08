@@ -19,6 +19,8 @@ classwork/*
 !classwork/class01b.ipynb
 !classwork/class02a.ipynb
 !classwork/class02b.ipynb
+!classwork/class03a.ipynb
+
 
 homework/*
 !homework/hw1.ipynb
@@ -28,3 +30,4 @@ slides/*
 !slides/lec01b.pdf
 !slides/lec02a.pdf
 !slides/lec02b.pdf
+!slides/lec03a.pdf

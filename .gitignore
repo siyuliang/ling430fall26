@@ -7,7 +7,6 @@ __pycache__/
 .venv/
 
 # instructor-only
-instructor_solutions/
 coursestudy_reports/
 DESIGN_NOTES.md
 canvas_syllabus_blurb.md
@@ -22,12 +21,13 @@ classwork/*
 !classwork/class03a.ipynb
 !classwork/class03b.ipynb
 !classwork/class04a.ipynb
-
-
+!classwork/class04b.ipynb
 
 homework/*
 !homework/hw1.ipynb
 !homework/hw2.ipynb
+
+instructor_solutions/
 
 
 slides/*
@@ -38,3 +38,4 @@ slides/*
 !slides/lec03a.pdf
 !slides/lec03b.pdf
 !slides/lec04a.pdf
+!slides/lec04b.pdf

@@ -24,11 +24,13 @@ classwork/*
 !classwork/class04a.ipynb
 !classwork/class04b.ipynb
 !classwork/class05a.ipynb
+!classwork/class05b.ipynb
 
 
 homework/*
 !homework/hw1.ipynb
 !homework/hw2.ipynb
+!homework/hw3.ipynb
 
 instructor_solutions/
 
@@ -43,3 +45,4 @@ slides/*
 !slides/lec04a.pdf
 !slides/lec04b.pdf
 !slides/lec05a.pdf
+!slides/lec05b.pdf

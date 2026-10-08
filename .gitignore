@@ -28,6 +28,7 @@ classwork/*
 !classwork/class06a.ipynb
 !classwork/class06b.ipynb
 !classwork/class07a.ipynb
+!classwork/class07b.ipynb
 
 
 
@@ -35,6 +36,8 @@ homework/*
 !homework/hw1.ipynb
 !homework/hw2.ipynb
 !homework/hw3.ipynb
+!homework/hw4.ipynb
+
 
 instructor_solutions/
 
@@ -53,3 +56,4 @@ slides/*
 !slides/lec06a.pdf
 !slides/lec06b.pdf
 !slides/lec07a.pdf
+!slides/lec07b.pdf

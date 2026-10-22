@@ -1,0 +1,146 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{iftex}
+\ifxetex
+  \usepackage{fontspec}
+  \IfFontExistsTF{Times New Roman}
+    {\setmainfont{Times New Roman}}
+    {\setmainfont{texgyretermes}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold,
+      ItalicFont=*-italic, BoldItalicFont=*-bolditalic]}
+  \setmonofont{DejaVuSansMono}[Extension=.ttf, BoldFont=*-Bold, Scale=0.8]
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{newtxtext,newtxmath}
+  \usepackage[scaled=0.8]{DejaVuSansMono}
+\fi
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{empty}
+
+\usepackage{needspace}
+\newcommand{\question}[1]{\needspace{5cm}\vspace{10pt}{\large\bfseries #1}\par\vspace{2pt}}
+\newcommand{\blank}{\rule{2.2em}{0.4pt}}
+\renewcommand{\arraystretch}{2.2}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small,frame=none,xleftmargin=1em}
+
+\begin{document}
+
+LING 430 Fall 2026
+
+HW5
+
+Due Thursday Oct 29, 11:59 pm, submit on Canvas
+
+Submission guidelines:
+\begin{itemize}[nosep,leftmargin=1.5em]
+  \item This is a written homework: work on paper or type it up, whichever you prefer.
+  \item Submit one PDF on Canvas under Assignments $>$ HW5; a clear scan or photo of handwriting is fine.
+  \item Show your counts and fractions, not only the final numbers.
+\end{itemize}
+
+\question{AI usage}
+
+If applicable, list any AI tools you used for this homework, what you asked them, and where the result went into your work. If you used none, write ``none''.
+
+ Declaration:\vspace{1cm}
+
+\question{An HMM tagger from a small corpus}
+
+In this homework you will build an HMM tagger based on a small corpus made up of the following seven sentences. Each sentence has been tagged by hand with two tags, N for noun and V for verb.
+
+\begin{code}
+dogs/N bark/V
+cats/N watch/V dogs/N
+people/N watch/V birds/N
+birds/N fly/V
+watch/N dogs/N bark/V
+dogs/N fly/V
+watch/V birds/N
+\end{code}
+
+You will work through the tagger on paper in questions 1 to 5: first the three tables, then the tagging of a new sentence. In question 6 you will compare your tagger with the one from nltk. Write every probability as a fraction, for example $6/7$.
+
+\question{1. The start table $\pi$}
+
+Count how many sentences begin with each tag and fill in $\pi$, the probability that a sentence begins with N or with V.
+
+\begin{tabular}{|l|>{\centering\arraybackslash}p{2.2cm}|}
+\hline
+$\pi$ & \\ \hline
+N &  \\ \hline
+V &  \\ \hline
+\end{tabular}
+
+\par\vspace{6pt}
+
+\question{2. The transition table A}
+
+Count the tag bigrams and fill in A, the probability of each tag given the previous tag. The rows are the previous tag. The last tag of a sentence does not begin a bigram.
+
+\begin{tabular}{|l|>{\centering\arraybackslash}p{2.2cm}|>{\centering\arraybackslash}p{2.2cm}|}
+\hline
+A & N & V \\ \hline
+N &  &  \\ \hline
+V &  &  \\ \hline
+\end{tabular}
+
+\par\vspace{6pt}
+
+\question{3. The emission table B}
+
+Count the words under each tag and fill in B, the probability of each word given its tag.
+
+\begin{tabular}{|l|*{7}{>{\centering\arraybackslash}p{1.35cm}|}}
+\hline
+B & dogs & cats & people & birds & watch & bark & fly \\ \hline
+N &  &  &  &  &  &  &  \\ \hline
+V &  &  &  &  &  &  &  \\ \hline
+\end{tabular}
+
+\par\vspace{6pt}
+
+\question{4. Tagging a new sentence}
+
+The sentence \emph{watch dogs bark} has two readings: \emph{watchdogs bark}, N N V, and \emph{watch the dogs bark}, V N V. Fill in the six factors of each path from your tables and multiply them to a decimal. Which reading does your tagger prefer, and by how much?
+
+\begin{align*}
+\text{N N V:}\quad & P(\text{N}) \times P(\text{watch} \mid \text{N}) \times P(\text{N} \mid \text{N}) \times P(\text{dogs} \mid \text{N}) \times P(\text{V} \mid \text{N}) \times P(\text{bark} \mid \text{V}) \\
+&= \blank \times \blank \times \blank \times \blank \times \blank \times \blank = \blank \\[6pt]
+\text{V N V:}\quad & P(\text{V}) \times P(\text{watch} \mid \text{V}) \times P(\text{N} \mid \text{V}) \times P(\text{dogs} \mid \text{N}) \times P(\text{V} \mid \text{N}) \times P(\text{bark} \mid \text{V}) \\
+&= \blank \times \blank \times \blank \times \blank \times \blank \times \blank = \blank
+\end{align*}
+\par\vspace{4pt}Answer:\par\vspace{1cm}
+
+\question{5. The other paths}
+
+With two tags and three words there are eight possible tag sequences for \emph{watch dogs bark}. Explain why the other six have probability 0.
+
+\par\vspace{4pt}Answer:\par\vspace{2cm}
+
+\question{6. Comparing with nltk}
+
+Paste the following into a code cell in Colab and run it. It tags \emph{watch dogs bark} and the seven sentences of the corpus with the nltk tagger from class 9a.
+
+\begin{code}
+import nltk
+nltk.download("averaged_perceptron_tagger_eng", quiet=True)
+
+sentences = ["watch dogs bark",
+             "dogs bark", "cats watch dogs", "people watch birds", "birds fly",
+             "watch dogs bark", "dogs fly", "watch birds"]
+for s in sentences:
+    print(nltk.pos_tag(s.split()))
+\end{code}
+
+Treat NN, NNS and NNP as N, and VB, VBP and VBZ as V. Does nltk choose the same reading of \emph{watch dogs bark} as your tagger? Where does it disagree with the hand tags in the corpus? Then reflect in three to five sentences: the nltk tagger was trained on a million words of newspaper text and yours on seven sentences. Which one would you trust on this sentence, and what would it take to change your mind?
+
+\par\vspace{4pt}Answer:\par\vspace{4cm}
+
+\end{document}

@@ -38,6 +38,8 @@ homework/*
 !homework/hw2.ipynb
 !homework/hw3.ipynb
 !homework/hw4.ipynb
+!homework/hw5.pdf
+!homework/hw5.tex
 
 
 instructor_solutions/
@@ -60,3 +62,4 @@ slides/*
 !slides/lec07b.pdf
 !slides/lec08b.pdf
 !slides/lec09a.pdf
+!slides/lec09b.pdf

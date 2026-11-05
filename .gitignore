@@ -32,6 +32,8 @@ classwork/*
 !classwork/class09a.ipynb
 !classwork/class10a.ipynb
 !classwork/class10b.ipynb
+!classwork/class11b.ipynb
+
 
 
 
@@ -42,6 +44,8 @@ homework/*
 !homework/hw4.ipynb
 !homework/hw5.pdf
 !homework/hw5.tex
+!homework/hw6.docx
+
 
 
 instructor_solutions/
@@ -68,3 +72,4 @@ slides/*
 !slides/lec10a.pdf
 !slides/lec10b.pdf
 !slides/lec11a.pdf
+!slides/lec11b.pdf
